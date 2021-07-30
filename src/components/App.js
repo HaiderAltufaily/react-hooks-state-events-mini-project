@@ -13,6 +13,7 @@ function App() {
 
   function filterTasks(newArray) {
     setCategory(newArray);
+    console.log(newArray);
   }
 
   function handleSubmit(newItem) {
@@ -28,6 +29,7 @@ function App() {
   const newArray = newTasks.filter((task) => {
     return category === "All" || task.category === category;
   });
+
   return (
     <div className="App">
       <h2>My tasks</h2>
@@ -36,7 +38,6 @@ function App() {
         categories={CATEGORIES}
         tasks={newArray}
         currentCategory={category}
-        setCategory={setCategory}
       />
       <NewTaskForm onTaskFormSubmit={handleSubmit} categories={CATEGORIES} />
       <TaskList
